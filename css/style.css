@@ -1,0 +1,65 @@
+*{
+	margin:0;
+	padding:0;
+}
+.mapContainer{
+	width:1920px;
+	height:2000px;
+}
+.map{
+	width: 1920px;	
+	top:0;
+	z-index:1;
+	position:absolute;
+}
+.newMarker{
+	position:fixed;
+	width:80px;
+	height:20px;
+	top:100px;
+	z-index:2;
+}
+.markers{
+	width:1920px;
+	height:2000px;
+	z-index:3;
+}
+.drag{
+	position:absolute;
+	width:100px;
+	height:35px;
+	z-index:4;
+}
+.savedMarker{
+	position:absolute;
+	width:50px;
+	height:50px;
+	z-index:5;
+}
+.save{
+	width:20px;
+	height:20px;
+	position:relative;
+	margin-right:2px;
+}
+.hidden{
+	display:none;
+} 
+.nameField{
+	width:65px;
+	height:15px;
+}
+.markerImg{
+	float:left;
+	height:34px;
+	width:20px;
+}
+.savedMarker p{
+	color: white;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	font-size:20px;
+	text-decoration: underline;
+	text-shadow: 2px 2px 0px rgba(150, 150, 150, 1);
+}
+
