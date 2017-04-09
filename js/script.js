@@ -23,15 +23,11 @@ $(document).ready(function(){
 				}
 			}	
 		}) 
-/* 	$(".mapContainer .markers .savedMarker").hover(function(){
-		$(this).next("p").addClass("banana");
-	},function(){
-		$(this).next("p").removeClass("banana");
-	})
+
 	$(".markers").on('click','.cancel',function(){
 		$(this).parent(".drag").remove();
 		
-	}) */
+	})
 	
 	$(".newMarker").on("click",function(){
 		var scrollPos = $(document).scrollTop();
@@ -51,21 +47,24 @@ $(document).ready(function(){
 		var parent = $(this).parent(".drag");
 		var pos = $(parent).position();
 		
-		$.ajax({
-			type: 'POST',
-			url: 'updatecoords.php',
-			data: {x: pos.left, y: pos.top, name: name},
-			success: function(data)
-			{
-				console.log(data);
-			}
-		})
-		$(this).prev().prev(".markerImg").attr("src","img/marker.png");
-		$(this).prev(".nameField").remove();
-		$(this).next(".cancel").remove();
-		$(this).parent(".drag").draggable('option', 'disabled', true);
-		$(this).remove();
-		
+		if(name != "" && pos != null){
+			$.ajax({
+				type: 'POST',
+				url: 'updatecoords.php',
+				data: {x: pos.left, y: pos.top, name: name},
+				success: function(data)
+				{
+					console.log(data);
+				}
+			})
+			$(this).prev().prev(".markerImg").attr("src","img/marker.png");
+			$(this).prev(".nameField").remove();
+			$(this).next(".cancel").remove();
+			$(this).parent(".drag").draggable('option', 'disabled', true);
+			$(this).remove();
+		}else{
+			alert("Name not set!");
+		}
 	})
 	
 

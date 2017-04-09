@@ -6,7 +6,7 @@
 	if(!isset($_POST['x']) && !isset($_POST['y']))
 	{
 		die("Coordinates not set");
-	}else if(!isset($_POST['name'])){
+	}else if(!isset($_POST['name']) || ($_POST['name'])=== ""){
 		die("Name not set");
 	}else{
 		$xcoord = $_POST['x'];
