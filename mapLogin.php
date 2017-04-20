@@ -1,10 +1,10 @@
 <?php
 	$hn = 'localhost';
-	$un = "gare";
-	$pw = "titty";
+	$un = 'gare';
+	$pw = 'titty';
 	$db = "pubg_map";
-	/* 
-	$link= mysqli_connect($hn, $un, $pw, $db) or die("MySQL Error: " .mysql_error());
 	
-	mysqli_select_db($link, $db) or die("MySQL Error: " . mysql_error()); */
+	
+	$conn = new mysqli($hn, $un, $pw, $db);
+	if($conn->connect_error) die ($conn->connect_error);
 ?>

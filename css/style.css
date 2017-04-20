@@ -4,29 +4,33 @@
 }
 .mapContainer{
 	width:1920px;
-	height:2000px;
+	height:1920px;
+	top:0;
+	position:absolute;
 }
 .map{
 	width: 1920px;	
+	height:1920px;
 	top:0;
 	z-index:1;
 	position:absolute;
 }
 .newMarker{
 	position:fixed;
-	width:80px;
-	height:20px;
+	width:150px;
+	height:50px;
 	top:100px;
+	left:-100px;
 	z-index:2;
 }
 .markers{
 	width:1920px;
-	height:2000px;
+	height:1880px;
 	z-index:3;
 }
 .drag{
 	position:absolute;
-	width:100px;
+	width:580px;
 	height:35px;
 	z-index:4;
 }
@@ -41,6 +45,10 @@
 	height:20px;
 	position:relative;
 	margin-right:2px;
+	float:left;
+}
+.cancel{
+	float:left;
 }
 .hidden{
 	display:none;
@@ -48,7 +56,45 @@
 .nameField{
 	width:65px;
 	height:15px;
+	
 }
+.userInput{
+	width:70px;
+	float:left;
+}
+.loginForm{
+	position:absolute;
+	top:20px;
+	left:20px;
+	z-index:6;
+	width:200px;
+}
+.login, .logout{
+	position:fixed;
+	width:150px;
+	height:50px;
+	top:155px;
+	left:-100px;
+	z-index:2;
+}
+.logout{
+	background-image:url("../img/logoutButton.png");
+	border:none;
+    background-size:cover;
+	display:block;
+	border-top-right-radius:10px;
+	
+	border-bottom-right-radius:10px;
+}
+.register{
+	position:fixed;
+	width:150px;
+	height:50px;
+	top:210px;
+	left:-100px;
+	z-index:2;
+}
+
 .markerImg{
 	float:left;
 	height:34px;
@@ -56,10 +102,52 @@
 }
 .savedMarker p{
 	color: white;
-	font-family: Verdana, Geneva, sans-serif;
+	font-family: arial;
 	font-weight: bold;
 	font-size:20px;
-	text-decoration: underline;
-	text-shadow: 2px 2px 0px rgba(150, 150, 150, 1);
+	text-shadow: 1px 1px 0px rgba(150, 150, 150, 1);
+	letter-spacing:1px;
 }
-
+form{
+	float:left;
+}
+.loginContainer{
+	width:500px;
+	height:200px;
+	background-color:white;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-13%;
+	margin-top:-15%;
+	z-index:6;	
+	font-size:20px;
+	font-family:arial;
+	background-color: #fff1e6;
+}
+.loginSide{
+	width:250px;
+	position:absolute;
+}
+.registerSide{
+	width:200px;
+	height:200px;
+	position:absolute;
+	left:250px; 
+	border-left: 5px solid grey;
+	z-index:7;
+}
+.registerSide a{
+	position:absolute;
+	top:80px;
+	font-size:40px;
+	left:40px;
+}
+.hidden{
+	display:none;
+}
+.close{
+	position:absolute;
+	top:200px;
+	right:190px;
+}
