@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['loggedOn']) || $_SESSION['loggedOn']==false){
+if(!isset($_COOKIE['loggedOn']) || $_COOKIE['loggedOn']=="false"){
 	echo "login failed";
 }
 ?>
@@ -9,7 +9,7 @@ if(!isset($_SESSION['loggedOn']) || $_SESSION['loggedOn']==false){
 	<title>PUBG Map</title>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/jquery.json.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
@@ -34,24 +34,31 @@ if(!isset($_SESSION['loggedOn']) || $_SESSION['loggedOn']==false){
 	</div>
 
 	<div class="mapContainer">
+		<img src="img/listButton.png" class="listButton"></img>
+		<div class="markerList">
+			<li class="hidden">
+			</li>
+		</div>
+	
 	<div class="markers"></div>
 		<div class="map">
 			<img src="img/map.jpg" class="map"></img>
 		</div>	
+	<input type="image" src="img/newMarkerButton.png" class="newMarker"></input>
 	
-	<input type="image" src="img/newMarkerButton.png" class="newMarker"></button>
 	<?php
-	if(!isset($_SESSION['loggedOn']) || $_SESSION['loggedOn']==false){
-		echo "<input type='image' class='login' src='img/loginButton.png'></image>"
-		."<br><input type='image' class='register' src='img/register.png'></input>";
-	}else{
-		echo "<form type='post' action='logout.php'>";
-		echo "<input type='submit' class='logout' src='img/logout.png' value=''></input>";
-		echo "</form>";
-
-	}
+		if(!isset($_COOKIE['loggedOn']) || $_COOKIE['loggedOn']==false){
+			echo "<input type='image' class='login' src='img/loginButton.png'></image>"
+			."<br><input type='image' class='register' src='img/register.png'></input>";
+		}else{
+			echo "<form type='post' action='logout.php'>";
+			echo "<input type='submit' class='logout' src='img/logout.png' value=''></input>";
+			echo "</form>";
+		}		
 	?>
 	</div>
+	
+	
 
 </body>
 

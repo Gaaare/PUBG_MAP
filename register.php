@@ -13,9 +13,9 @@
 		$query = "INSERT INTO users VALUES(NULL,'$username','$password','$email');";
 		$result= $conn->query($query);
 		if(!$result) die($conn->error);		
-		$_SESSION['loggedOn'] = true;
-		$_SESSION['un'] = $username;
-		header('Location: PUBGMap.php');
+			setcookie("loggedOn","true",time()+604800,"/",,"",0);
+			setcookie('user',$username,time()+604800, "/", "", 0);
+			header('Location: PUBGMap.php');
 		}else{
 			echo "Username or password too short: Minimum 6 characters for each";
 		}

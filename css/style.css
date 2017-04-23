@@ -30,13 +30,12 @@
 }
 .drag{
 	position:absolute;
-	width:580px;
+	width:250px;
 	height:35px;
 	z-index:4;
 }
 .savedMarker{
 	position:absolute;
-	width:50px;
 	height:50px;
 	z-index:5;
 }
@@ -94,17 +93,38 @@
 	left:-100px;
 	z-index:2;
 }
-
+.listButton{
+	position:fixed;
+	width:50px;
+	height:50px;
+	top:265px;
+	z-index:5;
+	cursor: pointer;
+}
+ul{
+	margin-bottom:2px;
+}
+.markerList{
+	
+	position:fixed;
+	width:150px;
+	top:360px;
+	z-index:9000;
+	background-color:white;
+}
+.markerList li{
+	list-style:none;
+}
 .markerImg{
 	float:left;
-	height:34px;
-	width:20px;
+	height:28px;
+	width:15px;
 }
 .savedMarker p{
 	color: white;
 	font-family: arial;
 	font-weight: bold;
-	font-size:20px;
+	font-size:15px;
 	text-shadow: 1px 1px 0px rgba(150, 150, 150, 1);
 	letter-spacing:1px;
 }

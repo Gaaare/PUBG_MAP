@@ -9,21 +9,43 @@ $(document).ready(function(){
 			markerData = data.Coords;
 			$markerNum = data.Coords.length;
 			for(var i = 0; i < $markerNum; i++){
-				xcoord = markerData[i].xcoord;
-				ycoord = markerData[i].ycoord;
-				name = markerData[i].name;
-				id = markerData[i].id;
+				var xcoord = markerData[i].xcoord;
+				var ycoord = markerData[i].ycoord;
+				var name = markerData[i].name;
+				var data_name = name.replace(" ","_");
+				var id = markerData[i].id;
 				console.log(xcoord);
 				
 				$(".markers").append("<div class='savedMarker '"
-				+"style='top:"+ycoord+"px; left:"+xcoord+"px' id='"+id+"' data-name="+name+">"
+				+"style='top:"+ycoord+"px; left:"+xcoord+"px' id='"+id+"' data-name="+data_name+">"
 				+"<img src='img/marker.png' class='markerImg'></img>"
 				+"<p>"+name+"</p>"
 				+"</div>");
+				
+				$(".markerList li").append("<ul>"+name+" </ul>"	);
 			}
 		}	
 	}) 
 	
+	$(".listButton").click(function(){
+		$("li").toggleClass("hidden");
+	})
+	$("li").on('mouseenter','ul',function(){				
+		var name = $(this).text();		
+		name = name.trim();
+		name = name.replace(" ","_");
+		var pos = $('[data-name='+name+']').position();
+		 $('[data-name='+name+'] p').css("background-color","rgba(66, 174, 191, 0.54)");
+		 
+		$(this).css("background-color","#42dcf4");
+			$(this).on('mouseleave',function(){
+				$(this).css("background-color","unset");
+				$('[data-name='+name+'] p').css("background-color","unset");
+				});
+		//alert(pos.left);
+		$(document).scrollTop(pos.top / 2);
+		$(document).scrollLeft(pos.left / 2);
+	})
 	
 	//Save new marker when save button on new marker element is clicked
 	$(".markers").on('click', '.save', function(){	
@@ -48,7 +70,8 @@ $(document).ready(function(){
 						$(".save").siblings(".cancel").remove();
 						$(".save").parent(".drag").draggable('option', 'disabled', true);
 						$(".save").remove(); 
-						alert ("good to go");
+						//alert ("Marker Added");
+						$("li").append("<ul>"+name+"</ul>");
 
 					}
 				}
