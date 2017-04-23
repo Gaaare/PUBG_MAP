@@ -12,8 +12,8 @@
 		
 		$query = "INSERT INTO users VALUES(NULL,'$username','$password','$email');";
 		$result= $conn->query($query);
-		if(!$result) die($conn->error);		
-			setcookie("loggedOn","true",time()+604800,"/",,"",0);
+		if(!$result) die($conn->error){	
+			setcookie("loggedOn","true",time()+604800,"/","",0);
 			setcookie('user',$username,time()+604800, "/", "", 0);
 			header('Location: PUBGMap.php');
 		}else{
