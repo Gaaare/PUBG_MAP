@@ -107,7 +107,7 @@ $(document).ready(function(){
 
 	//open new marker element when clicked
 	$(".newMarker").on("click",function(){			
-		$(document).scrollTop();
+		$(document).scrollTop(0);
 		
 		$(".markers").append("<div class='drag draggable'>"
 		+"<img class='markerImg' src='img/markerTemp.png' ></img>"
