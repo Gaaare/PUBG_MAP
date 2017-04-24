@@ -106,19 +106,28 @@ $(document).ready(function(){
 	})
 
 	//open new marker element when clicked
-	$(".newMarker").on("click",function(){			
-		$(document).scrollTop(0);
+	$(".newMarker").on("click",function(){		
+		if($(".drag").length == 0){
+			$(document).scrollTop(0);
+			$(document).scrollLeft(0);
+			
+			$(".markers").append("<div class='drag draggable'>"
+			+"<img class='markerImg' src='img/markerTemp.png' ></img>"
+			+"<input type='text' class='nameField'></input><br>"
+			+"<img src='img/confirm.png' class='save'>"
+			+"<img src='img/cancel.png' class='cancel'>"
+			+"</div>"
+			);	
 		
-		$(".markers").append("<div class='drag draggable'>"
-		+"<img class='markerImg' src='img/markerTemp.png' ></img>"
-		+"<input type='text' class='nameField'></input><br>"
-		+"<img src='img/confirm.png' class='save'>"
-		+"<img src='img/cancel.png' class='cancel'>"
-		+"</div>"
-		);	
+			//set new marker to be draggable
+			$(".draggable").draggable({containment: '.mapContainer'});
+		}else{
+			alert("Save or delete current marker");
+		}
+	})
 	
-		//set new marker to be draggable
-	$(".draggable").draggable({containment: '.mapContainer'});
+	$(".savedMarker").on("hover",function(){
+			$(this).css("z-index","50000");
 	})
 	
 /* 	

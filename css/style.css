@@ -100,6 +100,7 @@
 	top:265px;
 	z-index:5;
 	cursor: pointer;
+	left:-5px;
 }
 ul{
 	margin-bottom:2px;
@@ -124,9 +125,13 @@ ul{
 	color: white;
 	font-family: arial;
 	font-weight: bold;
-	font-size:15px;
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+	font-size:24px;
 	text-shadow: 1px 1px 0px rgba(150, 150, 150, 1);
 	letter-spacing:1px;
+	z-index:55;
 }
 form{
 	float:left;
@@ -170,4 +175,8 @@ form{
 	position:absolute;
 	top:200px;
 	right:190px;
+}
+#loggedInUser{
+	position:absolute;
+	float:right;
 }

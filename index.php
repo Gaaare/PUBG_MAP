@@ -1,8 +1,10 @@
 <?php
-session_start();
-if(!isset($_COOKIE['loggedOn']) || $_COOKIE['loggedOn']=="false"){
-	echo "login failed";
-}
+	session_start();
+	if(!isset($_COOKIE['loggedOn']) || $_COOKIE['loggedOn']=="false"){
+		echo "login failed";
+	}else{
+		$loggedOn = true;
+	}
 ?>
 <!DOCTYPE HTML>
 <head>
@@ -34,6 +36,11 @@ if(!isset($_COOKIE['loggedOn']) || $_COOKIE['loggedOn']=="false"){
 	</div>
 
 	<div class="mapContainer">
+		<?php
+			if($loggedOn == true){
+			$username = $_COOKIE['user'];
+			echo "<div id='loggedInUser'><p>Logged in as <span>"+$username+"</span></p></div>";}
+		?>
 		<img src="img/listButton.png" class="listButton"></img>
 		<div class="markerList">
 			<li class="hidden">
