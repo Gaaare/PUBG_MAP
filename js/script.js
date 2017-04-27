@@ -16,7 +16,7 @@ $(document).ready(function(){
 				var id = markerData[i].id;
 				console.log(xcoord);
 				
-				$(".markers").append("<div class='savedMarker '"
+				$(".markers").append("<div class='savedMarker'"
 				+"style='top:"+ycoord+"px; left:"+xcoord+"px' id='"+id+"' data-name="+data_name+">"
 				+"<img src='img/marker.png' class='markerImg'></img>"
 				+"<p>"+name+"</p>"
@@ -126,8 +126,8 @@ $(document).ready(function(){
 		}
 	})
 	
-	$(".savedMarker").on("hover",function(){
-			$(this).css("z-index","50000");
+	$(".markers").on('click','savedMarker',function(){
+		alert(1);
 	})
 	
 /* 	
